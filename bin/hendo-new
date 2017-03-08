@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var existsSync = require('fs').existsSync;
+var join = require('path').join;
+var chalk = require('chalk');
+var error = chalk.red;
+var success = chalk.green;
+
+program
+    .usage('<folder-name>')
+    .parse(process.argv)
+
+if (!program.args[0]) {
+    program.help();
+} else {
+    var appName = program.args[0];
+    var location = join(process.cwd(), appName);
+    if (existsSync(location)) {
+        console.error(error('Existing directory here, please run new command for an empty folder!'));
+        process.exit(1);
+    }
+    var sign = success('\nSuccess! Created an app at ' + location + '.\n\nInside that directory, you can run several commands:\n  * npm run dev: Starts the development server.\n  * npm run build: Bundles the app into dist for production.\n\nWe suggest that you begin by typing:\n  cd ' + appName + '\n  npm install\n  npm run dev\n\nEnjoy!')
+    require('../lib/install').install(location,sign);
+}

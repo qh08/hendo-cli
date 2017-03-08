@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var emptyDir = require('empty-dir');
+var chalk = require('chalk');
+var success = chalk.green;
+var error = chalk.red;
+var path = require('path');
+
+var location = process.cwd();
+if(emptyDir.sync(location)){
+    var sign = success('\nSuccess! Created an app at ' + location + '.\n\nInside that directory, you can run several commands:\n  * npm run dev: Starts the development server.\n  * npm run build: Bundles the app into dist for production.\n\nWe suggest that you begin by typing:\n  npm install\n  npm run dev\n\nEnjoy!')
+    require('../lib/install').install(location,sign);
+}else{
+    console.log(error('Existing files here, please run init command in an empty folder!'));
+    process.exit(1);
+}

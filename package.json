@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin":{
-    "hendo":"./bin/hendo.js"
+  "bin": {
+    "hendo": "./bin/hendo.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^2.9.0",
+    "download-git-repo": "^0.2.1",
+    "empty-dir": "^0.2.1",
+    "ora": "^1.1.0"
+  }
 }
