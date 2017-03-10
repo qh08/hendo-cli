@@ -9,6 +9,6 @@ program
     .option('-s,--sass','generate a .vue file , a .js file and a .sass file in a folder for component/router')
     .parse(process.argv)
 
-require('../lib/generate')(program, {
+require('../lib/generate').generate(program, {
     cwd: process.cwd(),
 });

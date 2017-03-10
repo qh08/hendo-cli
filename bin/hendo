@@ -1,11 +1,54 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var join = require('path').join;
+var exists = require('fs').existsSync;
+var spawn = require('win-spawn');
 
 program
     .version(require('../package').version)
     .usage('<command> [options]')
-    .command('new','Creates a new application')
-    .command('init','Inits a new application in the current folder')
-    .command('generate','Generates new code files or folders')
+    .command('new', 'Creates a new application')
+    .command('init', 'Inits a new application in the current folder')
+    .command('generate', 'Generates new code files or folders')
     .parse(process.argv);
+
+var aliases = {
+    g: 'generate',
+    i: 'init',
+    n: 'new'
+};
+
+var args = process.argv.slice(5);
+var subcmd = program.args[0];
+if (aliases[subcmd]) {
+    subcmd = aliases[subcmd];
+}
+
+if (!subcmd) {
+    program.help();
+} else {
+    var bin = executable(subcmd);
+    if (bin) {
+        console.log(bin);
+        wrap(spawn(bin, args, {
+            stdio: 'inherit',
+            customFds: [0, 1, 2]
+        }));
+    } else {
+        program.help();
+    }
+}
+
+function executable(subcmd) {
+    var file = join(__dirname, 'hendo-' + subcmd);
+    if (exists(file)) {
+        return file;
+    }
+}
+
+function wrap(sp) {
+    sp.on('close', function (code) {
+        process.exit(code);
+    });
+}
