@@ -1,10 +1,10 @@
 {
   "name": "hendo-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "cli for hendo",
   "main": "index.js",
   "bin": {
-    "hendo": "./bin/hendo.js"
+    "hendo": "./bin/hendo"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
