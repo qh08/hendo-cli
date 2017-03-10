@@ -17,7 +17,7 @@ var aliases = {
     n: 'new'
 };
 
-var args = process.argv.slice(5);
+var args = process.argv.slice(3);
 var subcmd = program.args[0];
 if (aliases[subcmd]) {
     subcmd = aliases[subcmd];
