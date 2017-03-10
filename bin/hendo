@@ -8,9 +8,7 @@ var spawn = require('win-spawn');
 program
     .version(require('../package').version)
     .usage('<command> [options]')
-    .command('new', 'Creates a new application')
-    .command('init', 'Inits a new application in the current folder')
-    .command('generate', 'Generates new code files or folders')
+    .on('--help', printHelp)
     .parse(process.argv);
 
 var aliases = {
@@ -51,4 +49,14 @@ function wrap(sp) {
     sp.on('close', function (code) {
         process.exit(code);
     });
+}
+
+function printHelp() {
+  console.log('  Commands:');
+  console.log();
+  console.log('    init           Inits a new application in the current folder');
+  console.log('    new            Creates a new application');
+  console.log('    generate       Generates new code files or folders (short-cut alias: "g")');
+  console.log();
+  console.log('  All commands can be run with -h (or --help) for more information.')
 }
