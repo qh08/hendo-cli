@@ -3,10 +3,10 @@
 const program = require('commander');
 
 program
-    .option('-v,--vue','generate .vue file in a folder for component')
-    .option('-l,--less','generate a .vue file , a .js file and a .less file in a folder for component')
-    .option('-c,--css','generate a .vue file , a .js file and a .css file in a folder for component')
-    .option('-s,--sass','generate a .vue file , a .js file and a .sass file in a folder for component')
+    .option('-v,--vue','generate a signal .vue file in a folder for component/router')
+    .option('-l,--less','generate a .vue file , a .js file and a .less file in a folder for component/router')
+    .option('-c,--css','generate a .vue file , a .js file and a .css file in a folder for component/router')
+    .option('-s,--sass','generate a .vue file , a .js file and a .sass file in a folder for component/router')
     .parse(process.argv)
 
 require('../lib/generate')(program, {

@@ -1,0 +1,14 @@
+<template>
+    <div id='{{fileName}}'></div>
+</template>
+
+<script>
+export default {
+    import js from '{{fileName}}.js'
+    export default js
+}
+</script>
+
+<style scoped lang='{{format}}'>
+    @import './{{fileName}}.{{format}}'
+</style>
