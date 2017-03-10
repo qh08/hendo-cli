@@ -28,7 +28,7 @@ if (!subcmd) {
 } else {
     var bin = executable(subcmd);
     if (bin) {
-        console.log(bin);
+        console.log('calling '+bin);
         wrap(spawn(bin, args, {
             stdio: 'inherit',
             customFds: [0, 1, 2]
