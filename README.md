@@ -6,11 +6,11 @@ cli for hendo
 
 我想找3个字母且有意义的名字，能想到的基本上被注册了。
 
-借鉴利物浦队长Jordan Henderson的名字起了这个名字，如果太长了再酌情考虑替换。
+借鉴利物浦队长Jordan Henderson的名字起了这个名字,这人天赋不足但很勤奋。如果太长了再酌情考虑替换。
 
 ## 安装
 
-npm install -g hendo
+npm install -g hendo-cli
 
 ## 操作与指令
 
