@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+'use strict';
 
 var program = require('commander');
 var join = require('path').join;
 var exists = require('fs').existsSync;
-var spawn = require('win-spawn');
+var spawn = require('cross-spawn');
 
 program
     .version(require('../package').version)
@@ -28,7 +29,7 @@ if (!subcmd) {
 } else {
     var bin = executable(subcmd);
     if (bin) {
-        console.log('calling '+bin);
+        console.log('calling ' + bin);
         wrap(spawn(bin, args, {
             stdio: 'inherit',
             customFds: [0, 1, 2]
@@ -52,11 +53,11 @@ function wrap(sp) {
 }
 
 function printHelp() {
-  console.log('  Commands:');
-  console.log();
-  console.log('    init           Inits a new application in the current folder');
-  console.log('    new            Creates a new application');
-  console.log('    generate       Generates new code files or folders (short-cut alias: "g")');
-  console.log();
-  console.log('  All commands can be run with -h (or --help) for more information.')
+    console.log('  Commands:');
+    console.log();
+    console.log('    init           Inits a new application in the current folder');
+    console.log('    new            Creates a new application');
+    console.log('    generate       Generates new code files or folders (short-cut alias: "g")');
+    console.log();
+    console.log('  All commands can be run with -h (or --help) for more information.')
 }
