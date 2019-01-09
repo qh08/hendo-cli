@@ -15,9 +15,15 @@ npm install -g hendo-cli
 ## 操作与指令
 
 ### 1. 创建一个新的名为myapp的hendo app
-```
+```bash
 hendo new myapp
 ```
+
+```xml
+<Text x="50" y="500" align="center" alignV="center" color="#ffffff" size="48" text="hello,world!" alpha="255*0.8" visibility="1" />
+<Image x="0" y="0" w="512" h="512" align="center" alignV="center" src="lock_bg.jpg" alpha="255*0.8" visibility="1" />
+```
+
 ```
 hendo n myapp
 ```
